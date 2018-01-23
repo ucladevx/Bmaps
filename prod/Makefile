@@ -8,7 +8,7 @@ ecr-login:
 
 build:
 	docker build ../../Mappening/python_app -t $(APP_NAME_FLASK)
-	docker build ../../Mappening-Frontend/nginx_app -t $(APP_NAME_NGINX)
+	docker build ../../Mappening-Frontend -t $(APP_NAME_NGINX)
 
 push: ecr-login build
 	docker tag $(APP_NAME_FLASK):latest $(ECR_REPO)/$(APP_NAME_FLASK):latest

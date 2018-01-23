@@ -11,16 +11,16 @@ services:
       - ../../Mappening/python_app:/app
 
   web_nginx:
-    build: ../../Mappening-Frontend/nginx_app
+    build: ../../Mappening-Frontend
     ports:
       - "80:80"
     volumes:
-      - ../../Mappening-Frontend/nginx_app:/app
+      - ../../Mappening-Frontend:/app
 
 # TODO: REMOVE THIS WHEN FRONTEND FIXED
-  web_node:
-     build: ../../node_app
-     ports:
-       - "8000:8000"
-     volumes:
-       - ../../node_app:/app
+  # web_node:
+  #    build: ../../node_app
+  #    ports:
+  #      - "8000:8000"
+  #    volumes:
+  #      - ../../node_app:/app
