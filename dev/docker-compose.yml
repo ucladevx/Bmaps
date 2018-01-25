@@ -15,7 +15,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ../../Mappening-Frontend:/app
+      - ../../Mappening-Frontend/static:/tmp/static
 
 # TODO: REMOVE THIS WHEN FRONTEND FIXED
   # web_node:
