@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+  mappening_backend:
+    environment:
+      - PYTHONUNBUFFERED=0
+    build: ../../Mappening/python_app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../../Mappening/python_app:/app
+
+  mappening_frontend:
+    build: ../../Mappening-Frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ../../Mappening-Frontend/static:/tmp/static
