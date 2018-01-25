@@ -10,7 +10,7 @@ run: build
 # `make files` from the Makefile within the frontend container
 # If folder or container names change, use `docker ps` to get right container name
 ash:
-	docker exec -it dev_web_nginx_1 /bin/ash
+	docker exec -it dev_mappening_frontend_1 /bin/ash
 
 # Stop running containers
 stop:
