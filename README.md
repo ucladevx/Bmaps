@@ -15,9 +15,11 @@ A single platform for events across campus. Mappening helps raise awareness of e
 ## Setting Up the Environment
 - Download [Docker](https://www.docker.com) and [Docker-Compose](https://github.com/docker/compose/releases) release 1.16.1.  
 - Clone the frontend, backend, and deployment repositories
-  - `git clone https://github.com/ucladevx/Mappening-Backend.git`  
   - `git clone https://github.com/ucladevx/Mappening-Frontend.git`  
+  - `git clone https://github.com/ucladevx/Mappening-Backend.git`  
   - `git clone https://github.com/ucladevx/Mappening-Deployment.git`  
+- Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/python_app/
+- Get the `id_rsa_mappening.pem` file and add it to Mappening-Deployment/prod/
 
 ## How to Develop Locally
 - To run just the [backend](https://github.com/ucladevx/Mappening-Backend) or just the [frontend](https://github.com/ucladevx/Mappening-Frontend) locally check out their individual repositories
