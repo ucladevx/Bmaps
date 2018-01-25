@@ -26,7 +26,7 @@ A single platform for events across campus. Mappening helps raise awareness of e
 - Build and run containers
   - `make run`
 - Enter frontend container
-  - `make front`
+  - `make ash`
   - Use Makefile within frontend container to update changes to static files
     - `make files`
 - Navigate to `localhost` which defaults to port 80

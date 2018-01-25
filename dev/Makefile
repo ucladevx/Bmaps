@@ -6,10 +6,10 @@ build:
 run: build
 	docker-compose up
 
-# Run frontend by entering container with `make front` and then running
+# Run frontend by entering container with `make ash` and then running
 # `make files` from the Makefile within the frontend container
 # If folder or container names change, use `docker ps` to get right container name
-front:
+ash:
 	docker exec -it dev_web_nginx_1 /bin/ash
 
 # Stop running containers
