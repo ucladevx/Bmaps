@@ -16,11 +16,3 @@ services:
       - "80:80"
     volumes:
       - ../../Mappening-Frontend/static:/tmp/static
-
-# TODO: REMOVE THIS WHEN FRONTEND FIXED
-  # web_node:
-  #    build: ../../node_app
-  #    ports:
-  #      - "8000:8000"
-  #    volumes:
-  #      - ../../node_app:/app
