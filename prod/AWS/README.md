@@ -13,6 +13,21 @@ Contains all the files for deployment. Should be maintained alongside files in A
 - Site should be live at www.whatsmappening.io
 - Stop running on the instance with `CTRL+C`
 
+# Out-of-Date Instructions
+
+## Set up ubuntu instance
+- Add setup.sh, docker-compose.yml, and Makefile
+- Run setup.sh script
+
+## Set up HTTPS in AWS.
+General steps to do so:
+- Get certificate with ACM (AWS' Certificate Manager)
+- Follow instructions to create an ELB
+- Connect ELB to EC2 Instance
+- Set up security group for ELB for port 80/443 (and any ports that need to be forwarded such as 5000 for api calls). These are actually called Listeners.
+- Change routes in Route53 to create Alias for ELB
+- In frontend code use domain names + HTTPS (otherwise will see non-secure endpoint in scripts and complain)
+
 ## To Add New Container
 - Log in to AWS account [here](devx-dora.signin.aws.amazon.com/console)
 - Click on Services > Compute > Elastic Container Service > Repositories 
