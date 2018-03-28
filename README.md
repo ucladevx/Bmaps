@@ -19,7 +19,7 @@ A single platform for events across campus. Mappening helps raise awareness of e
   - `git clone https://github.com/ucladevx/Mappening-Frontend.git`  
   - `git clone https://github.com/ucladevx/Mappening-Backend.git`  
   - `git clone https://github.com/ucladevx/Mappening-Deployment.git`  
-- Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/python_app/
+- Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/src/mappening/utils/
 - Get the `id_rsa_mappening.pem` file and add it to Mappening-Deployment/prod/
 
 ## How to Develop Locally
