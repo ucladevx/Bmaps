@@ -4,11 +4,11 @@ services:
   mappening_backend:
     environment:
       - PYTHONUNBUFFERED=0
-    build: ../../Mappening-Backend/python_app
+    build: ../../Mappening-Backend/src
     ports:
       - "5000:5000"
     volumes:
-      - ../../Mappening-Backend/python_app:/app
+      - ../../Mappening-Backend/src:/app
 
   mappening_frontend:
     build: ../../Mappening-Frontend

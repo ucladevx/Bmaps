@@ -5,13 +5,12 @@ A single platform for events across campus. Mappening helps raise awareness of e
 
 ## Built With
 - Python 2.7.14
-- Flask (Port 5000): Web microframework for Python
+- Flask: Web microframework for Python
 - mLab: Database-as-a-Service cloud-hosted MongoDB
 - Pymongo: Database Connector between MongoDB and Flask
 - AWS EC2/Elastic Container Service for deployment
-- nginx (Port 80): Server for static files, forwards requests to backend and serves results
+- nginx: Server for static files, forwards requests to backend and serves results
 - Mapbox: Open source mapping platform for custom designed maps
-- Handlebars.js: Templating language that separates view and code
 
 ## Setting Up the Environment
 - Download [Docker](https://www.docker.com) and [Docker-Compose](https://github.com/docker/compose/releases) release 1.16.1.
@@ -52,7 +51,5 @@ A single platform for events across campus. Mappening helps raise awareness of e
   - Katrina Wijaya (Backend Dev)
   - Jason Xu (Backend Dev)
   - Tanzeela Khan (Frontend Dev)
-  - Helen Lee (Frontend Dev)
-  - Hannah Elarabawy (Frontend Dev)
   - Sanketh Hegde (Frontend Dev)
   - Doroty Sanussi (PM)
