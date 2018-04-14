@@ -46,10 +46,16 @@ A single platform for events across campus. Mappening helps raise awareness of e
 - Stop running on the instance with `CTRL+C`
 
 ## The Team
-  - Jorge Fuentes (Tech Lead)
-  - Lucy Liao (Designer)
-  - Katrina Wijaya (Backend Dev)
-  - Jason Xu (Backend Dev)
-  - Tanzeela Khan (Frontend Dev)
-  - Sanketh Hegde (Frontend Dev)
-  - Doroty Sanussi (PM)
+  - Doroty Sanussi, PM (Winter 2018 - Present)
+  - Jorge Fuentes, Tech Lead (Fall 2018 - Present)
+  - Lucy Liao, Designer (Fall 2018 - Present)
+  - Katrina Wijaya, Backend Dev (Fall 2018 - Present)
+  - Jason Xu, Backend Dev (Fall 2018 - Present)
+  - Tanzeela Khan, Frontend Dev (Fall 2018 - Present)
+  - Sanketh Hegde, Frontend Dev (Winter 2018 - Present)
+  - Richard Sun, Frontend Dev (Spring 2018 - Present)
+  - Hakan Alpay, Frontend Dev (Spring 2018 - Present)
+  - Melissa Cox, Designer Intern (Spring 2018 - Present)
+  - Helen Lee, Frontend Dev (Fall 2018 - Winter 2018)
+  - Hannah Elarabawy, Frontend Dev (Fall 2018 - Winter 2018)
+

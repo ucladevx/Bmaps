@@ -1,4 +1,4 @@
-EC2_IP=52.8.97.98
+EC2_IP=13.56.9.195
 
 # Login to AWS instance. Requires *.pem file
 ssh:
