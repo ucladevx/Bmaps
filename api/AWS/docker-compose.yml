@@ -1,0 +1,7 @@
+version: '2'
+services:
+
+  mappening_backend:
+    image: 698514710897.dkr.ecr.us-west-1.amazonaws.com/mappening/backend:latest
+    ports:
+      - "5000:5000"

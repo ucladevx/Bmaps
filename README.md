@@ -19,26 +19,24 @@ A single platform for events across campus. Mappening helps raise awareness of e
   - `git clone https://github.com/ucladevx/Mappening-Backend.git`
   - `git clone https://github.com/ucladevx/Mappening-Deployment.git`
 - Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/src/mappening/utils/
-- Get the `id_rsa_mappening.pem` file and add it to Mappening-Deployment/prod/
+- Get the `*.pem` files for each folder in Mappening-Deployment as needed
 
 ## How to Develop Locally
 - To run just the [backend](https://github.com/ucladevx/Mappening-Backend) or just the [frontend](https://github.com/ucladevx/Mappening-Frontend) locally check out their individual repositories
-- Enter the dev repository
-  - `cd Mappening-Deployment/dev`
-- Build and run containers
-  - `make run`
-- Open a second terminal window:
-  - Enter frontend container
-    - `make ash`
-    - Use Makefile within frontend container to update changes to static files
-      - `make files`
-- Navigate to `localhost` which defaults to port 80
+- To run both backend and frontend together
+  - OUT OF DATE
+  - NO LONGER WORKS
+  - Honestly not worth keeping up to date as we always dev separately
+  - Enter the dev repository
+    - `cd Mappening-Deployment/dev`
+  - Build and run containers
+    - `make run`
 
 ## How to Deploy on AWS
 - Enter the prod repository
   - `cd Mappening-Deployment/prod`
 - Build + push updated images for [backend](https://github.com/ucladevx/Mappening-Backend) and [frontend](https://github.com/ucladevx/Mappening-Frontend) containers to AWS according to instructions in corresponding repositories
-- Login to AWS instance
+- Login to AWS prod instance to deploy frontend and AWS api instance to deploy backend
   - `make ssh`
   - Within instance deploy using the latest images
     - `make deploy`

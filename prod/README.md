@@ -3,12 +3,12 @@
 Contains all the files for deployment. Should be maintained alongside files in AWS instance (reached through `make ssh`). Instructions for dealing with AWS are as follows:
 
 ## To Deploy
-- Enter the prod repository
+- Enter the `prod` repository
   - `cd Mappening-Deployment/prod`
-- Build + push updated images for [backend](https://github.com/ucladevx/Mappening-Backend) and [frontend](https://github.com/ucladevx/Mappening-Frontend) containers to AWS according to instructions in corresponding repositories
+- Build + push updated image for [frontend](https://github.com/ucladevx/Mappening-Frontend) container to AWS according to instructions in repository
 - Login to AWS instance
   - `make ssh`
-  - Within instance deploy using the latest images
+  - Within instance deploy using the latest image
     - `make deploy`
 - Site should be live at www.whatsmappening.io
 - Stop running on the instance with `CTRL+C`

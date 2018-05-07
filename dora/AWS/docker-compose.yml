@@ -1,11 +1,6 @@
 version: '2'
 services:
 
-  dora_backend:
-    image: 698514710897.dkr.ecr.us-west-1.amazonaws.com/mappening/backend:dora
-    ports:
-      - "5000:5000"
-
   dora_frontend:
     image: 698514710897.dkr.ecr.us-west-1.amazonaws.com/mappening/frontend:dora
     ports:
