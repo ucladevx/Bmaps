@@ -1,6 +1,9 @@
 # Developmental Dora Instance
 Testing dev changes with the Dora instance before deploying.
 
+# Testing Frontend/Backend Instances
+- You need to choose which port in the aws docker-compose.yml and set the health check port in ec2
+
 ## How to Get Dora Instance Running
 - Go to EC2 Instances and start the dev-dora instance
 - Set up ELB
