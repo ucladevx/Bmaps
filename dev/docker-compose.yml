@@ -14,5 +14,3 @@ services:
     build: ../../Mappening-Frontend
     ports:
       - "80:80"
-    volumes:
-      - ../../Mappening-Frontend/static:/tmp/static
