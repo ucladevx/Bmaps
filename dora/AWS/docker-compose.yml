@@ -4,5 +4,5 @@ services:
   dev_dora:
     image: 698514710897.dkr.ecr.us-west-1.amazonaws.com/mappening/dev:dora
     ports:
-      - "5000:5000" # Uncomment this for backend, change health check port as well
-      # - "80:80" # Uncomment this for frontend, change health check port as well
+      # - "5000:5000" # Uncomment this for backend, change health check port as well
+      - "80:80" # Uncomment this for frontend, change health check port as well

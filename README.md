@@ -14,34 +14,30 @@ A single platform for events across campus. Mappening helps raise awareness of e
 
 ## Setting Up the Environment
 - Download [Docker](https://www.docker.com) and [Docker-Compose](https://github.com/docker/compose/releases) release 1.16.1.
-- Clone the frontend, backend, and deployment repositories
+- Clone the frontend, backend, and deployment repositories (and follow relevant instructions per repo)
   - `git clone https://github.com/ucladevx/Mappening-Frontend.git`
   - `git clone https://github.com/ucladevx/Mappening-Backend.git`
   - `git clone https://github.com/ucladevx/Mappening-Deployment.git`
 - Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/src/mappening/utils/
 - Get the `*.pem` files for each folder in Mappening-Deployment as needed
 
-## How to Develop Locally
-- To run just the [backend](https://github.com/ucladevx/Mappening-Backend) or just the [frontend](https://github.com/ucladevx/Mappening-Frontend) locally check out their individual repositories
-- To run both backend and frontend together
-  - OUT OF DATE
-  - NO LONGER WORKS
-  - Honestly not worth keeping up to date as we always dev separately
-  - Enter the dev repository
-    - `cd Mappening-Deployment/dev`
-  - Build and run containers
-    - `make run`
-
 ## How to Deploy on AWS
+- Build + push updated images for [backend](https://github.com/ucladevx/Mappening-Backend) and [frontend](https://github.com/ucladevx/Mappening-Frontend) containers to AWS according to instructions in corresponding repositories
 - Enter the prod repository
   - `cd Mappening-Deployment/prod`
-- Build + push updated images for [backend](https://github.com/ucladevx/Mappening-Backend) and [frontend](https://github.com/ucladevx/Mappening-Frontend) containers to AWS according to instructions in corresponding repositories
-- Login to AWS prod instance to deploy frontend and AWS api instance to deploy backend
+- Login to AWS `prod` instance to deploy frontend and AWS `api` instance to deploy backend
   - `make ssh`
   - Within instance deploy using the latest images
     - `make deploy`
-- Site should be live at www.whatsmappening.io
+- Site should be live at www.mappening.io
 - Stop running on the instance with `CTRL+C`
+  - Warning: this will kill the site. Close terminal/tab to just exit console.
+
+## Repository Breakdown
+- Backend API deployment in `api/`
+- Frontend deployment in `prod/`
+- Test instance deployment in `dora/`
+- Local dev in `dev/`
 
 ## The Team
   - Katrina Wijaya, Tech Lead/Backend Dev (Fall 2017 - Present)
