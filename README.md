@@ -42,20 +42,21 @@ A single platform for events across campus. Mappening helps raise awareness of e
 ## The Team
   - Katrina Wijaya, Tech Lead/Backend Dev (Fall 2017 - Present)
   - Doroty Sanussi, PM (Winter 2018 - Present)
-  - Sanketh Hegde, Frontend Dev (Winter 2018 - Present)
   - Hakan Alpay, Frontend Dev (Spring 2018 - Present)
   - Olivia Chen, Designer (Fall 2018 - Present)
   - Ryan Holland, Frontend Dev (Fall 2018 - Present)
-  - Dharma Naidu, Backend Dev (Fall 2018 - Present)
   - Yinghao (Howard) Wang, Backend Dev (Fall 2018 - Present)
-  
+  - Linda Wu, Marketing (Winter 2019 - Present)
+  - Tanzeela Khan, Frontend Dev (Fall 2017 - Spring 2018, Spring 2019)
+  - Jorge Fuentes, Backend Dev (Fall 2017 - Spring 2018, Spring 2019)
+
 ### Former Members
-  - Jorge Fuentes, Tech Lead (Fall 2017 - Spring 2018)
   - Lucy Liao, Designer (Fall 2017 - Spring 2018)
   - Jason Xu, Backend Dev (Fall 2017 - Spring 2018)
-  - Tanzeela Khan, Frontend Dev (Fall 2017 - Spring 2018)
+  - Sanketh Hegde, Frontend Dev (Winter 2018 - Winter 2019)
   - Richard Sun, Frontend Dev (Spring 2018)
   - Melissa Cox, Designer Intern (Spring 2018)
   - Helen Lee, Frontend Dev (Fall 2017 - Winter 2018)
   - Hannah Elarabawy, Frontend Dev (Fall 2017 - Winter 2018)
+  - Dharma Naidu, Backend Dev (Fall 2018)
 
