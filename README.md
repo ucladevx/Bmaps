@@ -49,6 +49,10 @@ A single platform for events across campus. Mappening helps raise awareness of e
   - Linda Wu, Marketing (Winter 2019 - Present)
   - Tanzeela Khan, Frontend Dev (Fall 2017 - Spring 2018, Spring 2019)
   - Jorge Fuentes, Backend Dev (Fall 2017 - Spring 2018, Spring 2019)
+  - Enika Biswas, Backend Dev (Spring 2019 - Present)
+  - Radhika Ahuja, Frontend Dev (Spring 2019 - Present)
+  - Will Fehrnstrom, Frontend Dev (Spring 2019 - Present)
+  - Jack Zhang, Frontend Dev (Spring 2019 - Present)
 
 ### Former Members
   - Lucy Liao, Designer (Fall 2017 - Spring 2018)
