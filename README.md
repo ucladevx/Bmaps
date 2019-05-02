@@ -18,18 +18,24 @@ A single platform for events across campus. Mappening helps raise awareness of e
   - `git clone https://github.com/ucladevx/Mappening-Frontend.git`
   - `git clone https://github.com/ucladevx/Mappening-Backend.git`
   - `git clone https://github.com/ucladevx/Mappening-Deployment.git`
+- Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+  - Configure CLI with `aws configure`
+  - Requires AWS secret info (only for PM/TL)
+  - NOTE: Computer local time must be accurate lol @Hakan
 - Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/src/mappening/utils/
 - Get the `*.pem` files for each folder in Mappening-Deployment as needed
 
 ## How to Deploy on AWS
 - Build + push updated images for [backend](https://github.com/ucladevx/Mappening-Backend) and [frontend](https://github.com/ucladevx/Mappening-Frontend) containers to AWS according to instructions in corresponding repositories
-- Enter the prod repository
-  - `cd Mappening-Deployment/prod`
-- Login to AWS `prod` instance to deploy frontend and AWS `api` instance to deploy backend
+- Enter the repository
+  - To deploy Mappening frontend: `cd Mappening-Deployment/prod`
+  - To deploy dev site frontend: `cd Mappening-Deployment/dora`
+  - To deploy backend API: `cd Mappening-Deployment/api`
+- Login to respective AWS instance to deploy
   - `make ssh`
-  - Within instance deploy using the latest images
+  - Within instance shell deploy using the latest images
     - `make deploy`
-- Site should be live at www.mappening.io
+- Site should be live at [www.mappening.io](https://www.mappening.io), [dev.mappening.io](https://dev.mappening.io), or [api.mappening.io](https://api.mappening.io:5000), respectively
 - Stop running on the instance with `CTRL+C`
   - Warning: this will kill the site. Close terminal/tab to just exit console.
 
@@ -37,9 +43,11 @@ A single platform for events across campus. Mappening helps raise awareness of e
 - Backend API deployment in `api/`
 - Frontend deployment in `prod/`
 - Test instance deployment in `dora/`
-- Local dev in `dev/`
+- ~~Local dev in `dev/~~`
+  - *Deprecated*: was used to develop and run backend + frontend together
 
 ## The Team
+
   - Katrina Wijaya, Tech Lead/Backend Dev (Fall 2017 - Present)
   - Doroty Sanussi, PM (Winter 2018 - Present)
   - Hakan Alpay, Frontend Dev (Spring 2018 - Present)
