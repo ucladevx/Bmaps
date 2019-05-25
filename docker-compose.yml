@@ -1,0 +1,15 @@
+version: "3"
+services:
+
+  backend:
+    build: ./backend/src/
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    command: python3 app.py -p
+    environment:
+      - ENV=production
+
+  frontend:
+    build: ./frontend/
+    ports:
+      - '${FRONTEND_PORT}:${FRONTEND_PORT}'
