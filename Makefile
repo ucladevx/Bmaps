@@ -20,3 +20,17 @@ db:
 	   --username=$(AWS_PG_USER) \
 	   --password \
 	   --dbname=$(AWS_PG_DATABASE) \
+
+##################       AWS Elastic Beanstalk Deployment     ##################
+
+# Dependency of `zip` target that requires VERSION to be set.
+check-version:
+ifndef VERSION
+	$(error VERSION is undefined)
+endif
+
+# Bundle application code and move to versions folder
+# Specify VERSION by passing environment variable with call
+# $ make zip VERSION=4.2
+zip: check-version
+	git archive -v -o ./deploymentversions/event_portal_v$(VERSION).zip --format=zip HEAD

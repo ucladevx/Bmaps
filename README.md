@@ -1,4 +1,4 @@
-# Mappening-Deployment
+# Mappening
 
 ## Overview
 A single platform for events across campus. Mappening helps raise awareness of events by aggregating event information from various sources of advertising.
@@ -17,20 +17,20 @@ A single platform for events across campus. Mappening helps raise awareness of e
 - Clone the frontend, backend, and deployment repositories (and follow relevant instructions per repo)
   - `git clone https://github.com/ucladevx/Mappening-Frontend.git`
   - `git clone https://github.com/ucladevx/Mappening-Backend.git`
-  - `git clone https://github.com/ucladevx/Mappening-Deployment.git`
+  - `git clone https://github.com/ucladevx/Mappening.git`
 - Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
   - Configure CLI with `aws configure`
   - Requires AWS secret info (only for PM/TL)
   - NOTE: Computer local time must be accurate lol @Hakan
 - Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/src/mappening/utils/
-- Get the `*.pem` files for each folder in Mappening-Deployment as needed
+- Get the `*.pem` files for each folder in Mappening as needed
 
 ## How to Deploy on AWS
 - Build + push updated images for [backend](https://github.com/ucladevx/Mappening-Backend) and [frontend](https://github.com/ucladevx/Mappening-Frontend) containers to AWS according to instructions in corresponding repositories
 - Enter the repository
-  - To deploy Mappening frontend: `cd Mappening-Deployment/prod`
-  - To deploy dev site frontend: `cd Mappening-Deployment/dora`
-  - To deploy backend API: `cd Mappening-Deployment/api`
+  - To deploy Mappening frontend: `cd Mappening/deployment/prod`
+  - To deploy dev site frontend: `cd Mappening/deployment/dora`
+  - To deploy backend API: `cd Mappening/deployment/api`
 - Login to respective AWS instance to deploy
   - `make ssh`
   - Within instance shell deploy using the latest images
