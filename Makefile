@@ -23,14 +23,35 @@ db:
 
 ##################       AWS Elastic Beanstalk Deployment     ##################
 
-# Dependency of `zip` target that requires VERSION to be set.
-check-version:
-ifndef VERSION
-	$(error VERSION is undefined)
-endif
+# Authenticate Docker client
+ecr-login:
+	$(shell aws ecr get-login --no-include-email --region us-east-2)
 
-# Bundle application code and move to versions folder
-# Specify VERSION by passing environment variable with call
-# $ make zip VERSION=4.2
-zip: check-version
-	git archive -v -o ./deploymentversions/event_portal_v$(VERSION).zip --format=zip HEAD
+# Build backend image
+build:
+	docker-compose build
+
+# Login, build, and push latest image to AWS
+push: ecr-login build
+	docker tag $(BACKEND_REPO):latest $(ECR_URI)/$(BACKEND_REPO):latest
+	docker push $(ECR_URI)/$(BACKEND_REPO):latest
+	docker tag $(FRONTEND_REPO):latest $(ECR_URI)/$(FRONTEND_REPO):latest
+	docker push $(ECR_URI)/$(FRONTEND_REPO):latest
+
+zip:
+	zip mappening.zip Dockerrun.aws.json
+	
+local:
+	eb local run
+
+deploy:
+	eb deploy
+
+# sudo docker ps
+# curl localhost:5000
+# sudo docker logs -f <cid>
+ssh-ec2:
+	ssh -i /Users/kwijaya/.ssh/aws-eb ec2-user@ec2-18-191-176-111.us-east-2.compute.amazonaws.com
+
+ssh-eb:
+	eb ssh

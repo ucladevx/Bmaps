@@ -1,0 +1,11 @@
+.DS_Store
+.env
+*.pyc
+*.git*
+deployment/
+backend/database/
+backend/docs/
+backend/scraping/
+backend/sphinx/
+backend/tkinter/
+frontend/node_modules/
