@@ -1,6 +1,8 @@
 # Include Environment Variables from .env file
 include .env 
 
+##################     				  LOCAL DEVELOPMENT 		    	   ##################
+
 # Creates and runs a static production build of the Angular frontend. Runs
 # Backend Flask API in separate container.
 run:
@@ -10,9 +12,13 @@ run:
 stop:
 	docker-compose down
 
+# Stop running containers
+kill:
+	-docker ps | tail -n +2 | cut -d ' ' -f 1 | xargs docker kill
+
 #####################       Amazon RDS for PostgreSQL     ######################
 
-# Connect via shell to Postgres database.
+# Connect via shell to AWS production Postgres database.
 db:
 	psql \
 	   --host=$(AWS_PG_HOST) \
@@ -40,7 +46,7 @@ push: ecr-login build
 
 zip:
 	zip mappening.zip Dockerrun.aws.json
-	
+
 local:
 	eb local run
 

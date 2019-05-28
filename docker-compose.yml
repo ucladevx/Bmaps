@@ -5,7 +5,6 @@ services:
     build: ./backend/src/
     ports:
       - 5000:5000
-    command: python3 app.py -p
     environment:
       - ENV=production
 

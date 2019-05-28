@@ -2,7 +2,6 @@
 .env
 *.pyc
 *.git*
-deployment/
 backend/database/
 backend/docs/
 backend/scraping/

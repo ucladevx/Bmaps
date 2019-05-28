@@ -1,7 +1,4 @@
-*.pem
-
 .env
-deployment/versions/
 
 .DS_Store
 
