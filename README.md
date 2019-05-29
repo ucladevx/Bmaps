@@ -13,7 +13,7 @@ A single platform for events across campus. Mappening helps raise awareness of e
 - Mapbox
 - NGINX
 - Yarn
-- AWS Elastic Beanstalk & Elastic Container Registry
+- AWS EC2/ELB/ECR
 
 ## Setting Up the Environment
 
@@ -24,27 +24,80 @@ A single platform for events across campus. Mappening helps raise awareness of e
   - Install as git submodules
     - `git clone --recurse-submodules https://github.com/ucladevx/Mappening`
     - Follow relevant instructions per repo
-- Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+- Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) (only for PM/TL)
   - Configure CLI with `aws configure`
-  - Requires AWS secret info (only for PM/TL)
+  - Requires AWS secret info
+  - Get `aws-eb.pem` permission file
   - NOTE: Computer local time must be accurate lol @Hakan
 - Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/src/mappening/utils/
 
 ## How to Run Locally
 
-- Run production build of stack with `make run`
+- Run production build of stack
+
   - Uses production build of Angular Frontend and Flask Backend
-- Stop the stack with `Ctrl+C` and `make stop`
-- Kill any running containers with `make kill`
-- Run the AWS ECR containers locally in Docker with `make local`
+
+  ```bash
+  $ make run
+  ```
+
+- Stop the stack with `Ctrl+C` or make command
+
+  ```bash
+  $ make stop
+  ```
+
+- Kill any running containers if `make stop` fails
+
+  ```bash
+  $ make kill
+  ```
 
 ## How to Deploy on AWS
 
-- Build + push frontend and backend images to AWS ECR
-  - `make push`
-- Deploy to AWS EB
-  - `make deploy`
+- Build and push frontend and backend images to AWS ECR
+
+  ```bash
+  $ make push
+  ```
+
+  - Can specifically push and tag the frontend or backend as well
+
+    ```bash
+    $ make push-be
+    $ make push-fe
+    ```
+
+- Deploy to the production AWS EC2 instance
+
+  - Files in `deployment/` folder should be kept up to date with files in EC2 instance
+
+  ```bash
+  $ make ssh
+  [ec2-user@... ~]$ make deploy
+  ```
+
 - Site should be live at [www.mappening.io](https://www.mappening.io)
+
+#### Dev Instance Deployment
+
+- Can also build/push to a dev website for testing
+
+  ```bash
+  # Push backend and frontend
+  $ make push-dev
+  
+  # Or can push backend/frontend separately
+  $ make push-dev-be
+  $ make push-dev-fe
+  ```
+
+- Deploy to the developmental AWS EC2 instance
+
+  ```bash
+  $ make ssh-dev
+  [ec2-user@... ~]$ make deploy
+  ```
 
 ## The Team
 

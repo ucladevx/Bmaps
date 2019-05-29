@@ -1,0 +1,14 @@
+version: "3"
+services:
+
+  backend:
+    image: 698514710897.dkr.ecr.us-east-2.amazonaws.com/mappening_backend:latest
+    ports:
+      - 5000:5000
+
+  frontend:
+    image: 698514710897.dkr.ecr.us-east-2.amazonaws.com/mappening_frontend:latest
+    ports:
+      - 80:80
+    links:
+      - backend

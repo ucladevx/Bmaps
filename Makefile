@@ -27,7 +27,7 @@ db:
 	   --password \
 	   --dbname=$(AWS_PG_DATABASE) \
 
-##################       AWS Elastic Beanstalk Deployment     ##################
+##################      		 		AWS EC2 Deployment   				  ##################
 
 # Authenticate Docker client
 ecr-login:
@@ -38,26 +38,32 @@ build:
 	docker-compose build
 
 # Login, build, and push latest image to AWS
-push: ecr-login build
+push: ecr-login build push-be push-fe
+
+push-be: ecr-login build
 	docker tag $(BACKEND_REPO):latest $(ECR_URI)/$(BACKEND_REPO):latest
 	docker push $(ECR_URI)/$(BACKEND_REPO):latest
+
+push-fe: ecr-login build
 	docker tag $(FRONTEND_REPO):latest $(ECR_URI)/$(FRONTEND_REPO):latest
 	docker push $(ECR_URI)/$(FRONTEND_REPO):latest
 
-zip:
-	zip mappening.zip Dockerrun.aws.json
+# Login to AWS instance. Requires *.pem file
+ssh:
+	ssh ec2-user@$(EC2_IP) -i aws-eb.pem
 
-local:
-	eb local run
+##################     	  AWS EC2 Dev Instance Deployment     ##################
 
-deploy:
-	eb deploy
+push-dev: ecr-login build push-dev-be push-dev-fe
 
-# sudo docker ps
-# curl localhost:5000
-# sudo docker logs -f <cid>
-ssh-ec2:
-	ssh -i /Users/kwijaya/.ssh/aws-eb ec2-user@ec2-18-191-176-111.us-east-2.compute.amazonaws.com
+push-dev-be: ecr-login build
+	docker tag $(BACKEND_REPO):latest $(ECR_URI)/$(BACKEND_REPO):dev
+	docker push $(ECR_URI)/$(BACKEND_REPO):dev
 
-ssh-eb:
-	eb ssh
+push-dev-fe: ecr-login build
+	docker tag $(FRONTEND_REPO):latest $(ECR_URI)/$(FRONTEND_REPO):dev
+	docker push $(ECR_URI)/$(FRONTEND_REPO):dev
+
+# Login to AWS instance. Requires *.pem file
+ssh-dev:
+	ssh ec2-user@$(EC2_DEV_IP) -i aws-eb.pem

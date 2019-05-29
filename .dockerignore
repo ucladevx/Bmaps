@@ -1,6 +1,8 @@
 .DS_Store
 .env
-*.pyc
+*.pem
+__pycache__/
+*.py[cod]
 *.git*
 backend/database/
 backend/docs/
