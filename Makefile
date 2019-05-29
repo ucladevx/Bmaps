@@ -41,12 +41,12 @@ build:
 push: ecr-login build push-be push-fe
 
 push-be: ecr-login build
-	docker tag $(BACKEND_REPO):latest $(ECR_URI)/$(BACKEND_REPO):latest
-	docker push $(ECR_URI)/$(BACKEND_REPO):latest
+	docker tag $(BACKEND_REPO):latest $(ECR_URI)/$(BACKEND_REPO):mappening
+	docker push $(ECR_URI)/$(BACKEND_REPO):mappening
 
 push-fe: ecr-login build
-	docker tag $(FRONTEND_REPO):latest $(ECR_URI)/$(FRONTEND_REPO):latest
-	docker push $(ECR_URI)/$(FRONTEND_REPO):latest
+	docker tag $(FRONTEND_REPO):latest $(ECR_URI)/$(FRONTEND_REPO):mappening
+	docker push $(ECR_URI)/$(FRONTEND_REPO):mappening
 
 # Login to AWS instance. Requires *.pem file
 ssh:
