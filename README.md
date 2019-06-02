@@ -1,50 +1,103 @@
-# Mappening-Deployment
+# Mappening
 
 ## Overview
 A single platform for events across campus. Mappening helps raise awareness of events by aggregating event information from various sources of advertising.
 
 ## Built With
-- Python 2.7.14
-- Flask: Web microframework for Python
-- mLab: Database-as-a-Service cloud-hosted MongoDB
-- Pymongo: Database Connector between MongoDB and Flask
-- AWS EC2/Elastic Container Service for deployment
-- nginx: Server for static files, forwards requests to backend and serves results
-- Mapbox: Open source mapping platform for custom designed maps
+
+- Python 3.7 (base image python:3.7-alpine3.8)
+- Postgres/Amazon RDS for PostgreSQL
+- Flask
+- Scikit-Learn
+- Angular 7
+- Mapbox
+- NGINX
+- Yarn
+- AWS EC2/ELB/ECR
 
 ## Setting Up the Environment
-- Download [Docker](https://www.docker.com) and [Docker-Compose](https://github.com/docker/compose/releases) release 1.16.1.
-- Clone the frontend, backend, and deployment repositories (and follow relevant instructions per repo)
-  - `git clone https://github.com/ucladevx/Mappening-Frontend.git`
-  - `git clone https://github.com/ucladevx/Mappening-Backend.git`
-  - `git clone https://github.com/ucladevx/Mappening-Deployment.git`
-- Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+
+- Download [Docker](https://www.docker.com) 
+  - Should come with Docker-Compose
+  - Follow respective directions to install for Mac/Windows
+- Clone the [frontend](https://github.com/ucladevx/Mappening-Frontend), [backend](https://github.com/ucladevx/Mappening-Backend), and main [Mappening](https://github.com/ucladevx/Mappening) repositories
+  - Install as git submodules
+    - `git clone --recurse-submodules https://github.com/ucladevx/Mappening`
+    - Follow relevant instructions per repo
+- Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) (only for PM/TL)
   - Configure CLI with `aws configure`
-  - Requires AWS secret info (only for PM/TL)
+  - Requires AWS secret info
+  - Get `aws-eb.pem` permission file
   - NOTE: Computer local time must be accurate lol @Hakan
 - Get the `.env` file which contains sensitive information from a dev and add it to Mappening-Backend/src/mappening/utils/
-- Get the `*.pem` files for each folder in Mappening-Deployment as needed
+
+## How to Run Locally
+
+- Run production build of stack
+
+  - Uses production build of Angular Frontend and Flask Backend
+
+  ```bash
+  $ make run
+  ```
+
+- Stop the stack with `Ctrl+C` or make command
+
+  ```bash
+  $ make stop
+  ```
+
+- Kill any running containers if `make stop` fails
+
+  ```bash
+  $ make kill
+  ```
 
 ## How to Deploy on AWS
-- Build + push updated images for [backend](https://github.com/ucladevx/Mappening-Backend) and [frontend](https://github.com/ucladevx/Mappening-Frontend) containers to AWS according to instructions in corresponding repositories
-- Enter the repository
-  - To deploy Mappening frontend: `cd Mappening-Deployment/prod`
-  - To deploy dev site frontend: `cd Mappening-Deployment/dora`
-  - To deploy backend API: `cd Mappening-Deployment/api`
-- Login to respective AWS instance to deploy
-  - `make ssh`
-  - Within instance shell deploy using the latest images
-    - `make deploy`
-- Site should be live at [www.mappening.io](https://www.mappening.io), [dev.mappening.io](https://dev.mappening.io), or [api.mappening.io](https://api.mappening.io:5000), respectively
-- Stop running on the instance with `CTRL+C`
-  - Warning: this will kill the site. Close terminal/tab to just exit console.
 
-## Repository Breakdown
-- Backend API deployment in `api/`
-- Frontend deployment in `prod/`
-- Test instance deployment in `dora/`
-- ~~Local dev in `dev/~~`
-  - *Deprecated*: was used to develop and run backend + frontend together
+- Build and push frontend and backend images to AWS ECR
+
+  ```bash
+  $ make push
+  ```
+
+  - Can specifically push and tag the frontend or backend as well
+
+    ```bash
+    $ make push-be
+    $ make push-fe
+    ```
+
+- Deploy to the production AWS EC2 instance
+
+  - Files in `deployment/` folder should be kept up to date with files in EC2 instance
+
+  ```bash
+  $ make ssh
+  [ec2-user@... ~]$ make deploy
+  ```
+
+- Site should be live at [www.mappening.io](https://www.mappening.io)
+
+#### Dev Instance Deployment
+
+- Can also build/push to a dev website for testing
+
+  ```bash
+  # Push backend and frontend
+  $ make push-dev
+  
+  # Or can push backend/frontend separately
+  $ make push-dev-be
+  $ make push-dev-fe
+  ```
+
+- Deploy to the developmental AWS EC2 instance
+
+  ```bash
+  $ make ssh-dev
+  [ec2-user@... ~]$ make deploy
+  ```
 
 ## The Team
 

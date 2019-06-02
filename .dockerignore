@@ -1,0 +1,12 @@
+.DS_Store
+.env
+*.pem
+__pycache__/
+*.py[cod]
+*.git*
+backend/database/
+backend/docs/
+backend/scraping/
+backend/sphinx/
+backend/tkinter/
+frontend/node_modules/
