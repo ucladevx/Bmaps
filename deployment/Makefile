@@ -3,8 +3,12 @@ ecr-login:
 	sudo $(shell aws ecr get-login --no-include-email --region us-east-2)
 
 # Deploy using the latest pushed images
+# https://stackoverflow.com/questions/38775954/sudo-docker-compose-command-not-found
+# https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth
+# https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html
+# https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth
 deploy: ecr-login
-	docker-compose pull
+	sudo docker-compose pull
 	docker-compose up
 
 # See running Docker processes
