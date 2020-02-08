@@ -1,4 +1,4 @@
-.env
+
 *.pem
 
 .DS_Store
@@ -7,3 +7,5 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+
