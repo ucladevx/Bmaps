@@ -8,4 +8,6 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
+# VSCode
+.vscode/
 
