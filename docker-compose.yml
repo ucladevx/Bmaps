@@ -2,18 +2,24 @@ version: "3"
 services:
 
   backend:
+    image: ${BACKEND_REPO}
     build: ./backend/src/
+    expose:
+      - 3031
     ports:
-      - 5000:5000
+      - ${BACKEND_PORT}:${BACKEND_PORT}
     environment:
       - ENV=production
 
   frontend:
+    image: ${FRONTEND_REPO}
     build: ./frontend/
+    depends_on:
+      - backend
     volumes:
       - ./frontend/:/usr/app
       - /usr/app/node_modules
     ports:
-      - 80:80
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
     links:
       - backend

@@ -1,5 +1,5 @@
 # Include Environment Variables from .env file
-include .env 
+include .env
 
 ##################     				  LOCAL DEVELOPMENT 		    	   ##################
 
@@ -16,6 +16,10 @@ stop:
 kill:
 	-docker ps | tail -n +2 | cut -d ' ' -f 1 | xargs docker kill
 
+clean:
+	docker image prune -f
+	rm -r ./frontend/dist
+
 #####################       Amazon RDS for PostgreSQL     ######################
 
 # Connect via shell to AWS production Postgres database.
@@ -31,7 +35,10 @@ db:
 
 # Authenticate Docker client
 ecr-login:
+	$(shell aws ecr get-login --profile bmaps --no-include-email --region us-east-2)
+ifeq ($?, 255)
 	$(shell aws ecr get-login --no-include-email --region us-east-2)
+endif
 
 # Build backend image
 build:

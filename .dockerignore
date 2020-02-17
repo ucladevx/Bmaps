@@ -1,9 +1,12 @@
-.DS_Store
+*.DS_Store
 .env
 *.pem
 __pycache__/
 *.py[cod]
 *.git*
+*LICENSE
+*Makefile
+*README*
 backend/database/
 backend/docs/
 backend/scraping/
