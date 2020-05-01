@@ -36,7 +36,7 @@ db:
 # Authenticate Docker client
 ecr-login:
 	$(shell aws ecr get-login --profile bmaps --no-include-email --region us-east-2)
-ifeq ($?, 255)
+ifneq ($?, 0)
 	$(shell aws ecr get-login --no-include-email --region us-east-2)
 endif
 

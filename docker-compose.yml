@@ -21,5 +21,6 @@ services:
       - /usr/app/node_modules
     ports:
       - ${FRONTEND_PORT}:${FRONTEND_PORT}
+    # Defines a network link with hostname backend for use in frontend's nginx.conf
     links:
       - backend
