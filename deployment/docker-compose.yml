@@ -2,12 +2,12 @@ version: "3"
 services:
 
   backend:
-    image: 698514710897.dkr.ecr.us-east-2.amazonaws.com/mappening_backend:mappening
+    image: 698514710897.dkr.ecr.us-west-1.amazonaws.com/bmaps_backend:bmaps
     ports:
       - 5000:5000
 
   frontend:
-    image: 698514710897.dkr.ecr.us-east-2.amazonaws.com/mappening_frontend:mappening
+    image: 698514710897.dkr.ecr.us-west-1.amazonaws.com/bmaps_frontend:bmaps
     ports:
       - 80:80
     links:
