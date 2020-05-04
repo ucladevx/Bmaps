@@ -35,10 +35,7 @@ db:
 
 # Authenticate Docker client
 ecr-login:
-	$(shell aws ecr get-login --profile bmaps --no-include-email --region us-east-2)
-ifeq ($?, 255)
-	$(shell aws ecr get-login --no-include-email --region us-east-2)
-endif
+	$(shell aws ecr get-login --no-include-email --region us-west-1)
 
 # Build backend image
 build:
@@ -48,12 +45,12 @@ build:
 push: ecr-login build push-be push-fe
 
 push-be: ecr-login build
-	docker tag $(BACKEND_REPO):latest $(ECR_URI)/$(BACKEND_REPO):mappening
-	docker push $(ECR_URI)/$(BACKEND_REPO):mappening
+	docker tag $(BACKEND_REPO):latest $(ECR_URI)/$(BACKEND_REPO):bmaps
+	docker push $(ECR_URI)/$(BACKEND_REPO):bmaps
 
 push-fe: ecr-login build
-	docker tag $(FRONTEND_REPO):latest $(ECR_URI)/$(FRONTEND_REPO):mappening
-	docker push $(ECR_URI)/$(FRONTEND_REPO):mappening
+	docker tag $(FRONTEND_REPO):latest $(ECR_URI)/$(FRONTEND_REPO):bmaps
+	docker push $(ECR_URI)/$(FRONTEND_REPO):bmaps
 
 # Login to AWS instance. Requires *.pem file
 ssh:

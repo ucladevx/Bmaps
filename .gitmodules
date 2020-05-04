@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
-	url = https://github.com/ucladevx/Mappening-Backend
+	url = https://github.com/ucladevx/Bmaps-Backend
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/ucladevx/Mappening-Frontend
+	url = https://github.com/ucladevx/Bmaps-Frontend
