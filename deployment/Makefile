@@ -1,6 +1,6 @@
 # Login to AWS instance
 ecr-login:
-	sudo $(shell aws ecr get-login --no-include-email --region us-east-2)
+	sudo $(shell aws ecr get-login --no-include-email --region us-west-1)
 
 # Deploy using the latest pushed images
 # https://stackoverflow.com/questions/38775954/sudo-docker-compose-command-not-found
